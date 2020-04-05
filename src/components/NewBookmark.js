@@ -1,26 +1,14 @@
 /*global chrome*/
-
 import React from "react";
+import { Row, Button, Container } from "react-bootstrap";
+import { addNewBookmark } from "./ChromeCacheAccessor";
 
 function NewBookmark(props) {
   // Update the relevant fields with the new data.
-  const setDOMInfo = info => {
+  const setDOMInfo = (info) => {
     document.getElementById("linkToSave").value = info.linkToSave;
   };
 
-  const saveBookmark = () => {
-    let link = document.getElementById("linkToSave").value;
-    let folder = "folder";
-    chrome.storage.sync.set({ key: link }, function() {
-      console.log("Value is set to " + link);
-    });
-    //
-    chrome.storage.sync.get(["key"], function(result) {
-      console.log("Value currently is " + result.key);
-    });
-    //
-    console.log(link, folder);
-  };
   //
   // Once the DOM is ready...
   window.addEventListener("DOMContentLoaded", () => {
@@ -28,9 +16,9 @@ function NewBookmark(props) {
     chrome.tabs.query(
       {
         active: true,
-        currentWindow: true
+        currentWindow: true,
       },
-      tabs => {
+      (tabs) => {
         chrome.tabs.sendMessage(
           tabs[0].id,
           { from: "popup", subject: "DOMInfo" },
@@ -40,11 +28,19 @@ function NewBookmark(props) {
     );
   });
 
+  const saveBookmark = () => {
+    let link = document.getElementById("linkToSave").value;
+    let folderName = "folder";
+    addNewBookmark(folderName, link);
+  };
+
   return (
-    <div>
-      <input type="text" id="linkToSave"></input>
-      <button onClick={saveBookmark}>Add</button>
-    </div>
+    <Container>
+      <Row>
+        <input type="text" id="linkToSave"></input>
+        <Button onClick={saveBookmark}>Add</Button>
+      </Row>
+    </Container>
   );
 }
 
