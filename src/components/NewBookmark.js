@@ -4,14 +4,12 @@ import { Row, Button, Container } from "react-bootstrap";
 import { addNewBookmark } from "./ChromeCacheAccessor";
 
 function NewBookmark(props) {
-  // Update the relevant fields with the new data.
+  let isDisabled = props.savedLinks.length == 5;
   const setDOMInfo = (info) => {
     document.getElementById("linkToSave").value = info.linkToSave;
   };
 
-  // Once the DOM is ready...
   window.addEventListener("DOMContentLoaded", () => {
-    // ...query for the active tab...
     chrome.tabs.query(
       {
         active: true,
@@ -30,14 +28,16 @@ function NewBookmark(props) {
   const saveBookmark = () => {
     let link = document.getElementById("linkToSave").value;
     let folderName = "folder";
-    addNewBookmark(folderName, link);
+    addNewBookmark(folderName, link, props.setSavedLinks);
   };
 
   return (
     <Container>
       <Row>
         <input type="text" id="linkToSave"></input>
-        <Button onClick={saveBookmark}>Add</Button>
+        <Button disabled={isDisabled} onClick={saveBookmark}>
+          Add
+        </Button>
       </Row>
     </Container>
   );

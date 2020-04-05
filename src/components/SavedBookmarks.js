@@ -2,24 +2,15 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import FileView from "./FileView";
-import { getSavedLinks, deleteLinkInFolder } from "./ChromeCacheAccessor";
 
 function SavedBookmarks(props) {
-  const [folderInFocus, setFolderInFocus] = useState("folder");
-  const [savedLinks, setSavedLinks] = useState([]);
-
-  useEffect(async () => {
-    getSavedLinks(folderInFocus, setSavedLinks);
-  }, []);
+  const [folderInFocus, setFolderInFocus] = useState(null);
 
   return (
     <Container>
       <Row>
         <Col>
-          <FileView
-            deleteLink={deleteLinkInFolder(folderInFocus, setSavedLinks)}
-            savedLinks={savedLinks}
-          ></FileView>
+          <FileView folder={folderInFocus}></FileView>
         </Col>
       </Row>
     </Container>

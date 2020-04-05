@@ -1,17 +1,16 @@
 /*global chrome*/
-const addNewBookmark = (folderName, link) => {
+const addNewBookmark = (folderName, link, setSavedLinks) => {
   chrome.storage.sync.get(folderName, function (result) {
     console.log("add new");
 
-    let currentLinks = Array.isArray(result[folderName])
+    const currentLinks = Array.isArray(result[folderName])
       ? result[folderName]
       : [];
-    chrome.storage.sync.set(
-      { [folderName]: [...currentLinks, link] },
-      function () {
-        console.log("Value is set to " + link);
-      }
-    );
+    const newLinks = [...currentLinks, link];
+    chrome.storage.sync.set({ [folderName]: newLinks }, function () {
+      console.log("Value is set to " + link);
+      setSavedLinks(newLinks);
+    });
   });
 };
 
@@ -34,7 +33,7 @@ const deleteLinkInFolder = (folderName, setSavedLinks) => {
         : [];
       currentLinks.splice(currentLinks.indexOf(link), 1);
       chrome.storage.sync.set({ [folderName]: [...currentLinks] }, function () {
-        console.log("Deleted" + link);
+        console.log(currentLinks);
         setSavedLinks(currentLinks);
       });
     });

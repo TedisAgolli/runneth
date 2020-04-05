@@ -1,19 +1,7 @@
 import React from "react";
-import logo from "./logo.svg";
-import NewBookmark from "./components/NewBookmark";
-import SavedBookmarks from "./components/SavedBookmarks";
-import { Container, Button, Col, Row } from "react-bootstrap";
+import MainView from "./components/MainView";
 function App() {
-  return (
-    <Container>
-      <Row className="mb-2">
-        <NewBookmark />
-      </Row>
-      <Row>
-        <SavedBookmarks />
-      </Row>
-    </Container>
-  );
+  return <MainView></MainView>;
 }
 
 export default App;
