@@ -9,7 +9,6 @@ function NewBookmark(props) {
     document.getElementById("linkToSave").value = info.linkToSave;
   };
 
-  //
   // Once the DOM is ready...
   window.addEventListener("DOMContentLoaded", () => {
     // ...query for the active tab...

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import FileView from "./FileView";
-import { getSavedLinks } from "./ChromeCacheAccessor";
+import { getSavedLinks, deleteLinkInFolder } from "./ChromeCacheAccessor";
 
 function SavedBookmarks(props) {
   const [folderInFocus, setFolderInFocus] = useState("folder");
@@ -16,7 +16,10 @@ function SavedBookmarks(props) {
     <Container>
       <Row>
         <Col>
-          <FileView savedLinks={savedLinks}></FileView>
+          <FileView
+            deleteLink={deleteLinkInFolder(folderInFocus, setSavedLinks)}
+            savedLinks={savedLinks}
+          ></FileView>
         </Col>
       </Row>
     </Container>

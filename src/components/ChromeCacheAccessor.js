@@ -23,4 +23,21 @@ const getSavedLinks = (folderName, setSavedLinks) => {
     setSavedLinks(currentLinks);
   });
 };
-export { addNewBookmark, getSavedLinks };
+
+const deleteLinkInFolder = (folderName, setSavedLinks) => {
+  return (link) => {
+    chrome.storage.sync.get(folderName, function (result) {
+      console.log("add new");
+
+      let currentLinks = Array.isArray(result[folderName])
+        ? result[folderName]
+        : [];
+      currentLinks.splice(currentLinks.indexOf(link), 1);
+      chrome.storage.sync.set({ [folderName]: [...currentLinks] }, function () {
+        console.log("Deleted" + link);
+        setSavedLinks(currentLinks);
+      });
+    });
+  };
+};
+export { addNewBookmark, getSavedLinks, deleteLinkInFolder };

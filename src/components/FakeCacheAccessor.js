@@ -10,4 +10,10 @@ const getSavedLinks = (folderName, setSavedLinks) => {
     "https://news.ycombinator.com/",
   ]);
 };
-export { addNewBookmark, getSavedLinks };
+
+const deleteLinkInFolder = (folder) => {
+  return (link) => {
+    console.log("deleting", folder, link);
+  };
+};
+export { addNewBookmark, getSavedLinks, deleteLinkInFolder };

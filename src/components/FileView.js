@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import Bookmark from "./Bookmark";
 
 function FileView(props) {
   let savedLinks = props.savedLinks;
@@ -8,11 +9,7 @@ function FileView(props) {
     links = links ? links : [];
 
     links = links.map((link) => {
-      return (
-        <Row className="mt-2">
-          <a href={link}>{link}</a>
-        </Row>
-      );
+      return <Bookmark deleteLink={props.deleteLink} link={link}></Bookmark>;
     });
 
     return links;
