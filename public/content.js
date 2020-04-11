@@ -3,7 +3,8 @@ chrome.runtime.onMessage.addListener((msg, sender, response) => {
   // First, validate the message's structure.
   if (msg.from === "popup" && msg.subject === "DOMInfo") {
     var domInfo = {
-      linkToSave: window.location.href
+      linkHref: window.location.href,
+      linkName: document.title,
     };
     response(domInfo);
   }

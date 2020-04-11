@@ -6,7 +6,13 @@ function FileView(props) {
   const displayLinks = (links) => {
     links = links ? links : [];
     links = links.map((link) => {
-      return <Bookmark deleteLink={props.deleteLink} link={link}></Bookmark>;
+      return (
+        <Bookmark
+          deleteLink={props.deleteLink}
+          linkHref={link.linkHref}
+          linkName={link.linkName}
+        ></Bookmark>
+      );
     });
     return links;
   };

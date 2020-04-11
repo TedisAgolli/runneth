@@ -2,12 +2,13 @@ import React from "react";
 import { Row, Button } from "react-bootstrap";
 
 function Link(props) {
-  const link = props.link;
-  const deleteLink = () => props.deleteLink(link);
+  const linkHref = props.linkHref;
+  const linkName = props.linkName;
+  const deleteLink = () => props.deleteLink(linkHref);
 
   return (
     <Row className="mt-2">
-      <a href={link}>{link}</a>
+      <a href={linkHref}>{linkName}</a>
       <Button variant="danger" onClick={deleteLink}>
         Delete
       </Button>
