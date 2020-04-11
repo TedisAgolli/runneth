@@ -1,34 +1,18 @@
 /*global chrome*/
 import React, { useState, useEffect } from "react";
 import { Row, Button, Container } from "react-bootstrap";
-import { addNewBookmark } from "./ChromeCacheAccessor";
+import { addNewBookmark, getActivePageInfo } from "./FakeCacheAccessor";
 
 function NewBookmark(props) {
   let isDisabled = props.savedLinks.length == 5;
   let [linkHref, setLinkHref] = useState(null);
   let [linkName, setLinkName] = useState(null);
-  const setDOMInfo = (info) => {
+  const setActivePageInfo = (info) => {
     setLinkHref(info.linkHref);
     setLinkName(info.linkName);
   };
 
-  useEffect(
-    () =>
-      chrome.tabs.query(
-        {
-          active: true,
-          currentWindow: true,
-        },
-        (tabs) => {
-          chrome.tabs.sendMessage(
-            tabs[0].id,
-            { from: "popup", subject: "DOMInfo" },
-            setDOMInfo
-          );
-        }
-      ),
-    linkHref
-  );
+  useEffect(() => getActivePageInfo(setActivePageInfo), linkHref);
 
   const saveBookmark = () => {
     let folderName = "folder";

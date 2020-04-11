@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Row, Container } from "react-bootstrap";
 import NewBookmark from "./NewBookmark";
 import FileView from "./FileView";
-import { getSavedLinks, deleteLinkInFolder } from "./ChromeCacheAccessor";
+import { getSavedLinks, deleteLinkInFolder } from "./FakeCacheAccessor";
 
 function MainView() {
   const [savedLinks, setSavedLinks] = useState([]);

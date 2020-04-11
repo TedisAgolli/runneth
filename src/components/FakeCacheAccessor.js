@@ -20,4 +20,9 @@ const deleteLinkInFolder = (folder, setSavedLinks) => {
     setSavedLinks([]);
   };
 };
-export { addNewBookmark, getSavedLinks, deleteLinkInFolder };
+
+const getActivePageInfo = (setActivePageInfo) => {
+  const info = { linkHref: "https://www.google.com", linkName: "Google" };
+  setActivePageInfo(info);
+};
+export { addNewBookmark, getSavedLinks, deleteLinkInFolder, getActivePageInfo };

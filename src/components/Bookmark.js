@@ -8,10 +8,18 @@ function Link(props) {
 
   return (
     <Row className="mt-2">
-      <a href={linkHref}>{linkName}</a>
-      <Button variant="danger" onClick={deleteLink}>
-        Delete
-      </Button>
+      <table>
+        <tr>
+          <td>
+            <a href={linkHref}>{linkName}</a>
+          </td>
+          <td>
+            <Button variant="danger" onClick={deleteLink}>
+              Delete
+            </Button>
+          </td>
+        </tr>
+      </table>
     </Row>
   );
 }
