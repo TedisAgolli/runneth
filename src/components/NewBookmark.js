@@ -1,10 +1,11 @@
 /*global chrome*/
 import React, { useState, useEffect } from "react";
 import { Row, Button, Container } from "react-bootstrap";
-import { addNewBookmark, getActivePageInfo } from "./FakeCacheAccessor";
+import { getActivePageInfo, addNewBookmark } from "./ChromeCacheAccessor";
 
 function NewBookmark(props) {
-  let isDisabled = props.savedLinks.length == 5;
+  const MAX_NUM_BOOKMARKS = 5;
+  let isDisabled = props.savedLinks.length >= MAX_NUM_BOOKMARKS;
   let [linkHref, setLinkHref] = useState(null);
   let [linkName, setLinkName] = useState(null);
   const setActivePageInfo = (info) => {
@@ -22,10 +23,18 @@ function NewBookmark(props) {
   return (
     <Container>
       <Row>
-        <input type="text" id="linkToSave" value={linkName}></input>
-        <Button disabled={isDisabled} onClick={saveBookmark}>
-          Add
-        </Button>
+        <table>
+          <tr>
+            <td>
+              <input type="text" id="linkToSave" value={linkName}></input>
+            </td>
+            <td>
+              <Button disabled={isDisabled} onClick={saveBookmark}>
+                Add
+              </Button>
+            </td>
+          </tr>
+        </table>
       </Row>
     </Container>
   );

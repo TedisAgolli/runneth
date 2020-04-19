@@ -6,9 +6,10 @@ const addNewBookmark = (folderName, link, setSavedLinks) => {
 const getSavedLinks = (folderName, setSavedLinks) => {
   console.log(folderName);
   setSavedLinks([
-    "https://www.google.com",
-    "https://news.ycombinator.com/",
-    "https://news.ycombinator.com/",
+    {
+      linkHref: "https://www.google.com",
+      linkName: "Google".repeat(6),
+    },
   ]);
 };
 
@@ -22,7 +23,10 @@ const deleteLinkInFolder = (folder, setSavedLinks) => {
 };
 
 const getActivePageInfo = (setActivePageInfo) => {
-  const info = { linkHref: "https://www.google.com", linkName: "Google" };
+  const info = {
+    linkHref: "https://www.google.com",
+    linkName: "Google".repeat(6),
+  };
   setActivePageInfo(info);
 };
 export { addNewBookmark, getSavedLinks, deleteLinkInFolder, getActivePageInfo };
