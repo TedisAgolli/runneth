@@ -1,9 +1,13 @@
 import React from "react";
 import { Row, Button } from "react-bootstrap";
 
-function Link(props) {
+function Bookmark(props) {
+  const formatLink = (link) => {
+    if (link.length > 21) return link.substr(0, 21) + "...";
+    else return link;
+  };
   const linkHref = props.linkHref;
-  const linkName = props.linkName;
+  const linkName = formatLink(props.linkName);
   const deleteLink = () => props.deleteLink(linkHref);
 
   return (
@@ -15,7 +19,7 @@ function Link(props) {
           </td>
           <td>
             <Button variant="danger" onClick={deleteLink}>
-              Delete
+              X
             </Button>
           </td>
         </tr>
@@ -24,4 +28,4 @@ function Link(props) {
   );
 }
 
-export default Link;
+export default Bookmark;
