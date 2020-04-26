@@ -3,7 +3,7 @@ import { Row, Button } from "react-bootstrap";
 
 function Bookmark(props) {
   const formatLink = (link) => {
-    if (link.length > 21) return link.substr(0, 21) + "...";
+    if (link && link.length > 21) return link.substr(0, 21) + "...";
     else return link;
   };
   const linkHref = props.linkHref;
@@ -15,7 +15,9 @@ function Bookmark(props) {
       <table>
         <tr>
           <td>
-            <a href={linkHref}>{linkName}</a>
+            <a href={linkHref} target="_blank">
+              {linkName}
+            </a>
           </td>
           <td>
             <Button variant="danger" onClick={deleteLink}>
