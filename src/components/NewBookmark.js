@@ -5,13 +5,17 @@ import { getActivePageInfo, addNewBookmark } from "./ChromeCacheAccessor";
 
 function NewBookmark(props) {
   const MAX_NUM_BOOKMARKS = 5;
-  let isDisabled = props.savedLinks.length >= MAX_NUM_BOOKMARKS;
   let [linkHref, setLinkHref] = useState(null);
   let [linkName, setLinkName] = useState(null);
   const setActivePageInfo = (info) => {
     setLinkHref(info.linkHref);
     setLinkName(info.linkName);
   };
+
+  let isDisabled =
+    props.savedLinks.length >= MAX_NUM_BOOKMARKS ||
+    linkName === null ||
+    linkName.trim() === "";
 
   useEffect(() => getActivePageInfo(setActivePageInfo), linkHref);
 
