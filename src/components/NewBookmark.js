@@ -20,13 +20,22 @@ function NewBookmark(props) {
     addNewBookmark(folderName, { linkHref, linkName }, props.setSavedLinks);
   };
 
+  const handleLinkNameChange = (e) => {
+    setLinkName(e.currentTarget.value);
+  };
+
   return (
     <Container>
       <Row>
         <table>
           <tr>
             <td>
-              <input type="text" id="linkToSave" value={linkName}></input>
+              <input
+                type="text"
+                id="linkToSave"
+                value={linkName}
+                onChange={handleLinkNameChange}
+              ></input>
             </td>
             <td>
               <Button disabled={isDisabled} onClick={saveBookmark}>
