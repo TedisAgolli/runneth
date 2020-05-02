@@ -25,7 +25,7 @@ const deleteLinkInFolder = (folder, setSavedLinks) => {
 const getActivePageInfo = (setActivePageInfo) => {
   const info = {
     linkHref: "https://www.google.com",
-    linkName: "Google".repeat(6),
+    linkName: "Google",
   };
   setActivePageInfo(info);
 };

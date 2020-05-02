@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Row, Button, Container } from "react-bootstrap";
 import { getActivePageInfo, addNewBookmark } from "./ChromeCacheAccessor";
+import "./css/table-style.css";
 
 function NewBookmark(props) {
   const MAX_NUM_BOOKMARKS = 5;
@@ -31,7 +32,7 @@ function NewBookmark(props) {
   return (
     <Container>
       <Row>
-        <table>
+        <table class="newBookmarkTable">
           <tr>
             <td>
               <input
@@ -42,7 +43,12 @@ function NewBookmark(props) {
               ></input>
             </td>
             <td>
-              <Button disabled={isDisabled} onClick={saveBookmark}>
+              <Button
+                variant="warning"
+                size="sm"
+                disabled={isDisabled}
+                onClick={saveBookmark}
+              >
                 Add
               </Button>
             </td>

@@ -1,0 +1,5 @@
+table {
+    border-collapse: separate;
+    border-spacing: 5px;
+    *border-collapse: expression('separate', cellSpacing='5px');
+}

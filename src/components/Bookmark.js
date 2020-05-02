@@ -1,26 +1,35 @@
 import React from "react";
-import { Row, Button } from "react-bootstrap";
+import { Row, Button, Tooltip, OverlayTrigger } from "react-bootstrap";
 
 function Bookmark(props) {
   const formatLink = (link) => {
     if (link && link.length > 21) return link.substr(0, 21) + "...";
     else return link;
   };
-  const linkHref = props.linkHref;
-  const linkName = formatLink(props.linkName);
+
+  const { linkHref, linkName } = props;
+  const formattedLinkName = formatLink(linkName);
   const deleteLink = () => props.deleteLink(linkHref);
 
+  const tooltip = <Tooltip>{linkName}</Tooltip>;
   return (
-    <Row className="mt-2">
+    <Row className="mt-0">
       <table>
         <tr>
           <td>
-            <a href={linkHref} target="_blank">
-              {linkName}
-            </a>
+            <OverlayTrigger id={linkHref} placement="top" overlay={tooltip}>
+              <Button
+                size="sm"
+                variant="outline-success"
+                href={linkHref}
+                target="_blank"
+              >
+                {formattedLinkName}
+              </Button>
+            </OverlayTrigger>
           </td>
           <td>
-            <Button variant="danger" onClick={deleteLink}>
+            <Button variant="danger" size="sm" onClick={deleteLink}>
               X
             </Button>
           </td>

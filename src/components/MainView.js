@@ -11,7 +11,7 @@ function MainView() {
     getSavedLinks(folderInFocus, setSavedLinks);
   }, []);
   return (
-    <Container>
+    <Container id="main">
       <Row className="mb-2">
         <NewBookmark savedLinks={savedLinks} setSavedLinks={setSavedLinks} />
       </Row>
