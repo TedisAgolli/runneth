@@ -23,14 +23,13 @@ const getSavedLinks = (folderName, setSavedLinks) => {
 const deleteLinkInFolder = (folderName, setSavedLinks) => {
   return link => {
     chrome.storage.sync.get(folderName, function(result) {
-      console.log("add new");
-
       let currentLinks = Array.isArray(result[folderName])
         ? result[folderName]
         : [];
-      currentLinks.splice(currentLinks.indexOf(link), 1);
+      currentLinks = currentLinks.filter(
+        savedLink => savedLink.linkHref !== link
+      );
       chrome.storage.sync.set({ [folderName]: currentLinks }, function() {
-        console.log(currentLinks);
         setSavedLinks(currentLinks);
       });
     });

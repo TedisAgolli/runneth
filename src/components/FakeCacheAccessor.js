@@ -1,31 +1,39 @@
+const FAKE_SAVED_LINKS = [
+  {
+    linkHref: "https://www.google.com",
+    linkName: "Google"
+  },
+  {
+    linkHref: "https://news.ycombinator.com/",
+    linkName: "HN"
+  }
+];
+
 const addNewBookmark = (folderName, link, setSavedLinks) => {
   console.log("adding new");
   setSavedLinks([link]);
 };
 
 const getSavedLinks = (folderName, setSavedLinks) => {
-  console.log(folderName);
-  setSavedLinks([
-    {
-      linkHref: "https://www.google.com",
-      linkName: "Google".repeat(6),
-    },
-  ]);
+  setSavedLinks(FAKE_SAVED_LINKS);
 };
 
 const deleteLinkInFolder = (folder, setSavedLinks) => {
-  console.log("here");
-
-  return (link) => {
-    console.log("deleting", folder, link);
-    setSavedLinks([]);
+  return link => {
+    let currentLinks = FAKE_SAVED_LINKS;
+    console.log("deleting", currentLinks, link);
+    currentLinks = currentLinks.filter(
+      savedLink => savedLink.linkHref !== link
+    );
+    console.log(currentLinks);
+    setSavedLinks(currentLinks);
   };
 };
 
-const getActivePageInfo = (setActivePageInfo) => {
+const getActivePageInfo = setActivePageInfo => {
   const info = {
     linkHref: "https://www.google.com",
-    linkName: "Google",
+    linkName: "Google"
   };
   setActivePageInfo(info);
 };

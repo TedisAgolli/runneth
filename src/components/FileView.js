@@ -3,9 +3,11 @@ import { Container } from "react-bootstrap";
 import Bookmark from "./Bookmark";
 
 function FileView(props) {
-  const displayLinks = (links) => {
+  const displayLinks = links => {
+    console.log(links);
+
     links = links ? links : [];
-    links = links.map((link) => {
+    links = links.map(link => {
       return (
         <Bookmark
           deleteLink={props.deleteLink}
