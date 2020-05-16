@@ -8,12 +8,20 @@ function NewBookmark(props) {
   const MAX_NUM_BOOKMARKS = 5;
   let [linkHref, setLinkHref] = useState(null);
   let [linkName, setLinkName] = useState(null);
-  const setActivePageInfo = (info) => {
+  const setActivePageInfo = info => {
     setLinkHref(info.linkHref);
     setLinkName(info.linkName);
   };
 
+  const linkAlreadyExists = (savedLinks, currentLink) => {
+    const filteredLinks = savedLinks.filter(
+      savedLink => savedLink.linkHref === currentLink
+    );
+    return filteredLinks.length > 0;
+  };
+
   let isDisabled =
+    linkAlreadyExists(props.savedLinks, linkHref) ||
     props.savedLinks.length >= MAX_NUM_BOOKMARKS ||
     linkName === null ||
     linkName.trim() === "";
@@ -25,7 +33,7 @@ function NewBookmark(props) {
     addNewBookmark(folderName, { linkHref, linkName }, props.setSavedLinks);
   };
 
-  const handleLinkNameChange = (e) => {
+  const handleLinkNameChange = e => {
     setLinkName(e.currentTarget.value);
   };
 

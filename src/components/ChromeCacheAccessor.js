@@ -1,21 +1,18 @@
 /*global chrome*/
 const addNewBookmark = (folderName, link, setSavedLinks) => {
-  chrome.storage.sync.get(folderName, function (result) {
-    console.log("add new");
-
+  chrome.storage.sync.get(folderName, function(result) {
     const currentLinks = Array.isArray(result[folderName])
       ? result[folderName]
       : [];
     const newLinks = [...currentLinks, link];
-    chrome.storage.sync.set({ [folderName]: newLinks }, function () {
-      console.log("Value is set to " + link);
+    chrome.storage.sync.set({ [folderName]: newLinks }, function() {
       setSavedLinks(newLinks);
     });
   });
 };
 
 const getSavedLinks = (folderName, setSavedLinks) => {
-  chrome.storage.sync.get(folderName, (result) => {
+  chrome.storage.sync.get(folderName, result => {
     let currentLinks = Array.isArray(result[folderName])
       ? result[folderName]
       : [];
@@ -24,15 +21,15 @@ const getSavedLinks = (folderName, setSavedLinks) => {
 };
 
 const deleteLinkInFolder = (folderName, setSavedLinks) => {
-  return (link) => {
-    chrome.storage.sync.get(folderName, function (result) {
+  return link => {
+    chrome.storage.sync.get(folderName, function(result) {
       console.log("add new");
 
       let currentLinks = Array.isArray(result[folderName])
         ? result[folderName]
         : [];
       currentLinks.splice(currentLinks.indexOf(link), 1);
-      chrome.storage.sync.set({ [folderName]: [...currentLinks] }, function () {
+      chrome.storage.sync.set({ [folderName]: currentLinks }, function() {
         console.log(currentLinks);
         setSavedLinks(currentLinks);
       });
@@ -40,13 +37,13 @@ const deleteLinkInFolder = (folderName, setSavedLinks) => {
   };
 };
 
-const getActivePageInfo = (setActivePageInfo) => {
+const getActivePageInfo = setActivePageInfo => {
   chrome.tabs.query(
     {
       active: true,
-      currentWindow: true,
+      currentWindow: true
     },
-    (tabs) => {
+    tabs => {
       chrome.tabs.sendMessage(
         tabs[0].id,
         { from: "popup", subject: "pageInfo" },
