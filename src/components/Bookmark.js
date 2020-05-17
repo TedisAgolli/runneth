@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Button, Tooltip, OverlayTrigger } from "react-bootstrap";
 
 function Bookmark(props) {
-  const formatLink = (link) => {
+  const formatLink = link => {
     if (link && link.length > 21) return link.substr(0, 21) + "...";
     else return link;
   };
@@ -20,7 +20,7 @@ function Bookmark(props) {
             <OverlayTrigger id={linkHref} placement="top" overlay={tooltip}>
               <Button
                 size="sm"
-                variant="outline-success"
+                variant="outline-primary"
                 href={linkHref}
                 target="_blank"
               >

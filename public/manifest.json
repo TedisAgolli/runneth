@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "live-bookmarks",
-  "version": "0.1",
+  "version": "0.12",
   "content_scripts": [
     {
       "matches": ["https://*/*"],
