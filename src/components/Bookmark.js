@@ -2,22 +2,35 @@ import React from "react";
 import { Row, Button, Tooltip, OverlayTrigger } from "react-bootstrap";
 
 function Bookmark(props) {
-  const formatLink = link => {
+  const formatLink = (link) => {
     if (link && link.length > 21) return link.substr(0, 21) + "...";
     else return link;
   };
 
   const { linkHref, linkName } = props;
+  const otherLink = linkName.substr(0, 53) + "...";
   const formattedLinkName = formatLink(linkName);
   const deleteLink = () => props.deleteLink(linkHref);
 
-  const tooltip = <Tooltip>{linkName}</Tooltip>;
+  const tooltip = <Tooltip>{otherLink}</Tooltip>;
   return (
     <Row className="mt-0">
       <table>
         <tr>
           <td>
-            <OverlayTrigger id={linkHref} placement="top" overlay={tooltip}>
+            <OverlayTrigger
+              id={linkHref}
+              placement="top"
+              overlay={tooltip}
+              popperConfig={{
+                modifiers: {
+                  preventOverflow: {
+                    boundariesElement: "viewport",
+                    enabled: false,
+                  },
+                },
+              }}
+            >
               <Button
                 size="sm"
                 variant="outline-primary"
