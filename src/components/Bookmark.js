@@ -1,8 +1,8 @@
-import React from "react";
-import { Row, Button, Tooltip, OverlayTrigger } from "react-bootstrap";
+import React, { useState } from "react";
+import { Row, Button } from "react-bootstrap";
 
 function Bookmark(props) {
-  const MAX_LINK_NAME_LENGTH = 120;
+  const MAX_LINK_NAME_LENGTH = 42;
   const formatLinkName = (linkName) => {
     if (linkName && linkName.length > MAX_LINK_NAME_LENGTH)
       return linkName.substr(0, MAX_LINK_NAME_LENGTH) + "...";
@@ -11,8 +11,15 @@ function Bookmark(props) {
 
   const { linkHref, linkName } = props;
   const formattedLinkName = formatLinkName(linkName);
-  const deleteLink = () => props.deleteLink(linkHref);
+  let [linkNameToDisplay, setLinkNameToDisplay] = useState(formattedLinkName);
 
+  const deleteLink = () => props.deleteLink(linkHref);
+  const onTitleHover = () => {
+    setLinkNameToDisplay(linkName);
+  };
+  const onTitleLeave = () => {
+    setLinkNameToDisplay(formattedLinkName);
+  };
   return (
     <Row className="mt-0">
       <table>
@@ -23,8 +30,11 @@ function Bookmark(props) {
               variant="outline-primary"
               href={linkHref}
               target="_blank"
+              onMouseEnter={onTitleHover}
+              onMouseLeave={onTitleLeave}
+              style={{ overflowWrap: "break-word", wordBreak: "break-word" }}
             >
-              {formattedLinkName}
+              {linkNameToDisplay}
             </Button>
           </td>
           <td>
