@@ -1,18 +1,18 @@
 /*global chrome*/
 const addNewBookmark = (folderName, link, setSavedLinks) => {
-  chrome.storage.sync.get(folderName, function(result) {
+  chrome.storage.sync.get(folderName, function (result) {
     const currentLinks = Array.isArray(result[folderName])
       ? result[folderName]
       : [];
     const newLinks = [...currentLinks, link];
-    chrome.storage.sync.set({ [folderName]: newLinks }, function() {
+    chrome.storage.sync.set({ [folderName]: newLinks }, function () {
       setSavedLinks(newLinks);
     });
   });
 };
 
 const getSavedLinks = (folderName, setSavedLinks) => {
-  chrome.storage.sync.get(folderName, result => {
+  chrome.storage.sync.get(folderName, (result) => {
     let currentLinks = Array.isArray(result[folderName])
       ? result[folderName]
       : [];
@@ -21,28 +21,28 @@ const getSavedLinks = (folderName, setSavedLinks) => {
 };
 
 const deleteLinkInFolder = (folderName, setSavedLinks) => {
-  return link => {
-    chrome.storage.sync.get(folderName, function(result) {
+  return (link) => {
+    chrome.storage.sync.get(folderName, function (result) {
       let currentLinks = Array.isArray(result[folderName])
         ? result[folderName]
         : [];
       currentLinks = currentLinks.filter(
-        savedLink => savedLink.linkHref !== link
+        (savedLink) => savedLink.linkHref !== link
       );
-      chrome.storage.sync.set({ [folderName]: currentLinks }, function() {
+      chrome.storage.sync.set({ [folderName]: currentLinks }, function () {
         setSavedLinks(currentLinks);
       });
     });
   };
 };
 
-const getActivePageInfo = setActivePageInfo => {
+const getActivePageInfo = (setActivePageInfo) => {
   chrome.tabs.query(
     {
       active: true,
-      currentWindow: true
+      currentWindow: true,
     },
-    tabs => {
+    (tabs) => {
       chrome.tabs.sendMessage(
         tabs[0].id,
         { from: "popup", subject: "pageInfo" },
@@ -52,4 +52,14 @@ const getActivePageInfo = setActivePageInfo => {
   );
 };
 
-export { addNewBookmark, getSavedLinks, deleteLinkInFolder, getActivePageInfo };
+const setBadge = (count) => {
+  chrome.browserAction.setBadgeText({ text: count });
+};
+
+export {
+  addNewBookmark,
+  getSavedLinks,
+  deleteLinkInFolder,
+  getActivePageInfo,
+  setBadge,
+};

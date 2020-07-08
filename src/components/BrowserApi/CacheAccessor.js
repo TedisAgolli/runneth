@@ -10,5 +10,4 @@ if (process.env.NODE_ENV === "production") {
   browserAPI = fake;
 }
 
-console.log(browserAPI);
 export default browserAPI;

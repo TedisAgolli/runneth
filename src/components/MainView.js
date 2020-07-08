@@ -6,20 +6,28 @@ import browserAPI from "./BrowserApi/CacheAccessor";
 
 function MainView() {
   const [savedLinks, setSavedLinks] = useState([]);
+  const setSavedAndUpdateBadge = (newSavedLinks) => {
+    setSavedLinks(newSavedLinks);
+    browserAPI.setBadge(newSavedLinks.length.toString());
+  };
   const [folderInFocus, setFolderInFocus] = useState("folder");
   useEffect(async () => {
-    browserAPI.getSavedLinks(folderInFocus, setSavedLinks);
+    browserAPI.getSavedLinks(folderInFocus, setSavedAndUpdateBadge);
+    setSavedAndUpdateBadge(savedLinks);
   }, []);
   return (
     <Container id="main">
       <Row className="mb-2">
-        <NewBookmark savedLinks={savedLinks} setSavedLinks={setSavedLinks} />
+        <NewBookmark
+          savedLinks={savedLinks}
+          setSavedLinks={setSavedAndUpdateBadge}
+        />
       </Row>
       <Row>
         <FileView
           deleteLink={browserAPI.deleteLinkInFolder(
             folderInFocus,
-            setSavedLinks
+            setSavedAndUpdateBadge
           )}
           savedLinks={savedLinks}
         ></FileView>
