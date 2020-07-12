@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
 import Bookmark from "./Bookmark";
 
 function FileView(props) {
   const displayLinks = (links) => {
-    console.log(links);
-
     links = links ? links : [];
     links = links.map((link) => {
       return (
         <Bookmark
+          key={link.linkHref}
           deleteLink={props.deleteLink}
           linkHref={link.linkHref}
           linkName={link.linkName}

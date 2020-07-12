@@ -56,7 +56,7 @@ function NewBookmark(props) {
             </td>
             <td>
               <Button
-                variant="warning"
+                variant="primary"
                 size="sm"
                 disabled={isDisabled}
                 onClick={saveBookmark}

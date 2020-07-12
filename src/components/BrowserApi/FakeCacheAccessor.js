@@ -37,4 +37,14 @@ const getActivePageInfo = (setActivePageInfo) => {
   };
   setActivePageInfo(info);
 };
-export { addNewBookmark, getSavedLinks, deleteLinkInFolder, getActivePageInfo };
+
+const setBadge = (count) => {
+  console.log("Badge not implemented", count);
+};
+export {
+  addNewBookmark,
+  getSavedLinks,
+  deleteLinkInFolder,
+  getActivePageInfo,
+  setBadge,
+};

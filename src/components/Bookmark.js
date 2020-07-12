@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Row, Button } from "react-bootstrap";
 
 function Bookmark(props) {
-  const MAX_LINK_NAME_LENGTH = 42;
+  const MAX_LINK_NAME_LENGTH = 57;
   const formatLinkName = (linkName) => {
     if (linkName && linkName.length > MAX_LINK_NAME_LENGTH)
       return linkName.substr(0, MAX_LINK_NAME_LENGTH) + "...";
@@ -32,7 +32,10 @@ function Bookmark(props) {
               target="_blank"
               onMouseEnter={onTitleHover}
               onMouseLeave={onTitleLeave}
-              style={{ overflowWrap: "break-word", wordBreak: "break-word" }}
+              style={{
+                overflowWrap: "break-word",
+                wordBreak: "break-word",
+              }}
             >
               {linkNameToDisplay}
             </Button>
