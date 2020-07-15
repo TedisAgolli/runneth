@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "live-bookmarks",
-  "description": "Live-bookmarks is a simple extension manager with the added goal of forcing you to prioritize.",
-  "version": "0.18",
+  "description": "Live-bookmarks is a simple bookmark manager with the added goal of forcing you to prioritize.",
+  "version": "0.21",
   "background": {
     "scripts": ["background.js"]
   },
@@ -13,13 +13,13 @@
     }
   ],
   "browser_action": {
-    "default_icon": "images/volcano16.png",
+    "default_icon": "volcano16.png",
     "default_popup": "index.html"
   },
   "icons": {
-    "16": "images/volcano16.png",
-    "48": "images/volcano48.png",
-    "128": "images/volcano128.png"
+    "16": "volcano16.png",
+    "48": "volcano48.png",
+    "128": "volcano128.png"
   },
   "permissions": ["storage"],
   "content_security_policy": "script-src 'self' 'sha256-zTgY3eZByp6zQmEL3b4cEtPLObecE6cS3xxu/ykOwMI='; object-src 'self'"
