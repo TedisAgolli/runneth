@@ -43,11 +43,11 @@ const getActivePageInfo = (setActivePageInfo) => {
       currentWindow: true,
     },
     (tabs) => {
-      chrome.tabs.sendMessage(
-        tabs[0].id,
-        { from: "popup", subject: "pageInfo" },
-        setActivePageInfo
-      );
+      var domInfo = {
+        linkHref: tabs[0].url,
+        linkName: tabs[0].title,
+      };
+      setActivePageInfo(domInfo);
     }
   );
 };
