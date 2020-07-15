@@ -11,7 +11,7 @@ function MainView() {
     browserAPI.setBadge(newSavedLinks.length.toString());
   };
   const [folderInFocus, setFolderInFocus] = useState("folder");
-  useEffect(async () => {
+  useEffect(() => {
     browserAPI.getSavedLinks(folderInFocus, setSavedAndUpdateBadge);
     setSavedAndUpdateBadge(savedLinks);
   }, []);
