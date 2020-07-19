@@ -1,19 +1,19 @@
 {
   "manifest_version": 2,
-  "name": "live-bookmarks",
-  "description": "Live-bookmarks is a simple bookmark manager with the added goal of forcing you to prioritize.",
-  "version": "0.22",
+  "name": "Runneth",
+  "description": "Runneth is a simple bookmark manager with the added goal of forcing you to prioritize.",
+  "version": "0.23",
   "background": {
     "scripts": ["background.js"]
   },
   "browser_action": {
-    "default_icon": "volcano16.png",
+    "default_icon": "runneth_16.png",
     "default_popup": "index.html"
   },
   "icons": {
-    "16": "volcano16.png",
-    "48": "volcano48.png",
-    "128": "volcano128.png"
+    "16": "runneth_16.png",
+    "48": "runneth_48.png",
+    "128": "runneth_128.png"
   },
   "permissions": ["storage", "activeTab"],
   "content_security_policy": "script-src 'self' 'sha256-zTgY3eZByp6zQmEL3b4cEtPLObecE6cS3xxu/ykOwMI='; object-src 'self'"
