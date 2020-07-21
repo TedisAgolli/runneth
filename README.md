@@ -10,3 +10,5 @@ I was prompted to build this when I noticed that a few of my bookmarks folders h
 Runneth understands that collecting cool and interesting resources is no longer the problem, prioritizing them is. The items in this folder are meant to be in constant motion; they are added, read or watched, and then removed.
 
 "The more disciplined your environment is, the less disciplined you need to be. Don't swim upstream" - James Clear (Author of Atomic Habits)
+
+[Chrome extension](https://chrome.google.com/webstore/detail/runneth/dmihmacgmljciebmenpanbfkllboajkl?hl=en&authuser=0)
