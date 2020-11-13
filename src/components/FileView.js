@@ -18,7 +18,11 @@ function FileView(props) {
     return links;
   };
 
-  return <Container>{displayLinks(props.savedLinks)}</Container>;
+  return (
+    <Container style={{ maxWidth: "300px" }}>
+      {displayLinks(props.savedLinks)}
+    </Container>
+  );
 }
 
 export default FileView;

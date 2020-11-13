@@ -1,24 +1,17 @@
 import React, { useState } from "react";
 import { Row, Button } from "react-bootstrap";
+import MultiClamp from "react-multi-clamp";
 
 function Bookmark(props) {
-  const MAX_LINK_NAME_LENGTH = 57;
-  const formatLinkName = (linkName) => {
-    if (linkName && linkName.length > MAX_LINK_NAME_LENGTH)
-      return linkName.substr(0, MAX_LINK_NAME_LENGTH) + "...";
-    else return linkName;
-  };
-
   const { linkHref, linkName } = props;
-  const formattedLinkName = formatLinkName(linkName);
-  let [linkNameToDisplay, setLinkNameToDisplay] = useState(formattedLinkName);
+  let [isHovered, setIsHovered] = useState(false);
 
   const deleteLink = () => props.deleteLink(linkHref);
   const onTitleHover = () => {
-    setLinkNameToDisplay(linkName);
+    setIsHovered(true);
   };
   const onTitleLeave = () => {
-    setLinkNameToDisplay(formattedLinkName);
+    setIsHovered(false);
   };
   return (
     <Row className="mt-0">
@@ -37,7 +30,13 @@ function Bookmark(props) {
                 wordBreak: "break-word",
               }}
             >
-              {linkNameToDisplay}
+              {isHovered ? (
+                linkName
+              ) : (
+                <MultiClamp ellipsis="..." clamp={2}>
+                  {linkName}
+                </MultiClamp>
+              )}
             </Button>
           </td>
           <td>
