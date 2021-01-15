@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Runneth",
     "description": "Runneth is a simple bookmark manager with the added goal of forcing you to prioritize.",
-    "version": "1.1",
+    "version": "1.2",
     "background": {
         "scripts": [
             "background.js"
