@@ -1,37 +1,42 @@
 {
-  "name": "live-bookmarks",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^11.1.1",
-    "@testing-library/user-event": "^7.2.1",
-    "bootstrap": "^4.5.3",
-    "react": "^16.14.0",
-    "react-bootstrap": "^1.4.0",
-    "react-dom": "^16.13.1",
-    "react-multi-clamp": "^2.0.2",
-    "react-scripts": "4.0.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "runneth",
+    "version": "1.2.0",
+    "private": true,
+    "dependencies": {
+        "@craco/craco": "^6.0.0",
+        "@tailwindcss/forms": "^0.2.1",
+        "@tailwindcss/line-clamp": "^0.1.0",
+        "@tailwindcss/postcss7-compat": "^2.0.2",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^11.1.1",
+        "@testing-library/user-event": "^7.2.1",
+        "autoprefixer": "^9.8.6",
+        "postcss": "^7.0.35",
+        "react": "^16.14.0",
+        "react-dom": "^16.13.1",
+        "react-multi-clamp": "^2.0.2",
+        "react-scripts": "4.0.0",
+        "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
+    },
+    "scripts": {
+        "start": "craco start",
+        "build": "craco build",
+        "test": "craco test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
 }

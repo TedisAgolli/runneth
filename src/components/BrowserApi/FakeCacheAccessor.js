@@ -1,7 +1,7 @@
 const FAKE_SAVED_LINKS = [
   {
     linkHref: "https://www.google.com",
-    linkName: "Google".repeat(6),
+    linkName: "Google".repeat(12),
   },
   {
     linkHref: "https://news.ycombinator.com/",
@@ -11,7 +11,7 @@ const FAKE_SAVED_LINKS = [
 
 const addNewBookmark = (folderName, link, setSavedLinks) => {
   console.log("adding new");
-  setSavedLinks([link]);
+  setSavedLinks(FAKE_SAVED_LINKS);
 };
 
 const getSavedLinks = (folderName, setSavedLinks) => {

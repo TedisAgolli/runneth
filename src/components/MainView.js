@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Row, Container } from "react-bootstrap";
 import NewBookmark from "./NewBookmark";
 import FileView from "./FileView";
 import browserAPI from "./BrowserApi/CacheAccessor";
@@ -16,23 +15,19 @@ function MainView() {
     setSavedAndUpdateBadge(savedLinks);
   }, []);
   return (
-    <Container id="main">
-      <Row className="mb-2">
-        <NewBookmark
-          savedLinks={savedLinks}
-          setSavedLinks={setSavedAndUpdateBadge}
-        />
-      </Row>
-      <Row>
-        <FileView
-          deleteLink={browserAPI.deleteLinkInFolder(
-            folderInFocus,
-            setSavedAndUpdateBadge
-          )}
-          savedLinks={savedLinks}
-        ></FileView>
-      </Row>
-    </Container>
+    <div>
+      <NewBookmark
+        savedLinks={savedLinks}
+        setSavedLinks={setSavedAndUpdateBadge}
+      />
+      <FileView
+        deleteLink={browserAPI.deleteLinkInFolder(
+          folderInFocus,
+          setSavedAndUpdateBadge
+        )}
+        savedLinks={savedLinks}
+      />
+    </div>
   );
 }
 

@@ -28,5 +28,5 @@
         "activeTab",
         "tabs"
     ],
-    "content_security_policy": "script-src 'self' 'sha256-zTgY3eZByp6zQmEL3b4cEtPLObecE6cS3xxu/ykOwMI='; object-src 'self'"
+    "content_security_policy": "script-src 'self' 'sha256-ekFFAwPfwHO/DT0gcfC1vOsgw3kcpIkrY87JIj5lNk4='; object-src 'self'"
 }

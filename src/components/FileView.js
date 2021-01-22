@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 import Bookmark from "./Bookmark";
 
 function FileView(props) {
@@ -7,21 +6,25 @@ function FileView(props) {
     links = links ? links : [];
     links = links.map((link) => {
       return (
-        <Bookmark
-          key={link.linkHref}
-          deleteLink={props.deleteLink}
-          linkHref={link.linkHref}
-          linkName={link.linkName}
-        ></Bookmark>
+        <li className="py-4 mx-2">
+          <Bookmark
+            key={link.linkHref}
+            deleteLink={props.deleteLink}
+            linkHref={link.linkHref}
+            linkName={link.linkName}
+          ></Bookmark>
+        </li>
       );
     });
     return links;
   };
 
   return (
-    <Container style={{ maxWidth: "300px" }}>
-      {displayLinks(props.savedLinks)}
-    </Container>
+    <div className="mt-5" style={{ width: "300px" }}>
+      <ul class="-my-5 divide-y divide-gray-200">
+        {displayLinks(props.savedLinks)}
+      </ul>
+    </div>
   );
 }
 
