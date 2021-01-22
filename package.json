@@ -13,7 +13,7 @@
         "autoprefixer": "^9.8.6",
         "postcss": "^7.0.35",
         "react": "^16.14.0",
-        "react-dom": "^16.13.1",
+        "react-dom": "^16.14.0",
         "react-multi-clamp": "^2.0.2",
         "react-scripts": "4.0.0",
         "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
