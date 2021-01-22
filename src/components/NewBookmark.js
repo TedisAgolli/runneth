@@ -39,8 +39,8 @@ function NewBookmark(props) {
   };
 
   return (
-    <div className="flex justify-between space-x-2 m-2">
-      <div className="w-full">
+    <div className="flex m-2 space-x-2">
+      <div className="w-full mr-2">
         <label for="email" class="sr-only">
           Email
         </label>
