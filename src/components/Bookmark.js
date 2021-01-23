@@ -8,9 +8,9 @@ function Bookmark(props) {
     <div class="flex items-center space-x-4 ">
       <div class="flex-shrink-0">
         <img
-          class="h-8 w-8 rounded-full"
-          src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
-          alt=""
+          class="h-4 w-4 rounded-full"
+          src={`https://s2.googleusercontent.com/s2/favicons?domain=${linkHref}`}
+          alt="Domain icon"
         />
       </div>
       <div class="flex-1">
