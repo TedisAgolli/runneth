@@ -5,7 +5,7 @@ function Bookmark(props) {
 
   const deleteLink = () => props.deleteLink(linkHref);
   return (
-    <div class="flex items-center space-x-4 ">
+    <div class="flex items-center space-x-4">
       <div class="flex-shrink-0">
         <img
           class="h-4 w-4 rounded-full"

@@ -6,7 +6,7 @@ function FileView(props) {
     links = links ? links : [];
     links = links.map((link) => {
       return (
-        <li className="py-4 mx-2">
+        <li className="py-4 px-1 mx-2">
           <Bookmark
             key={link.linkHref}
             deleteLink={props.deleteLink}
