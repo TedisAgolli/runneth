@@ -11,7 +11,7 @@
         "@testing-library/react": "^11.1.1",
         "@testing-library/user-event": "^7.2.1",
         "autoprefixer": "^9.8.6",
-        "postcss": "^7.0.35",
+        "postcss": "^8.2.6",
         "react": "^16.14.0",
         "react-dom": "^16.13.1",
         "react-multi-clamp": "^2.0.2",
