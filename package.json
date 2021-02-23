@@ -15,7 +15,7 @@
         "react": "^16.14.0",
         "react-dom": "^16.13.1",
         "react-multi-clamp": "^2.0.2",
-        "react-scripts": "4.0.0",
+        "react-scripts": "4.0.3",
         "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
     },
     "scripts": {
