@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NewBookmark from "./NewBookmark";
-import FileView from "./FileView";
+import BookmarkList from "./BookmarkList";
 import browserAPI from "./BrowserApi/CacheAccessor";
 
 function MainView() {
@@ -20,7 +20,7 @@ function MainView() {
         savedLinks={savedLinks}
         setSavedLinks={setSavedAndUpdateBadge}
       />
-      <FileView
+      <BookmarkList
         deleteLink={browserAPI.deleteLinkInFolder(
           folderInFocus,
           setSavedAndUpdateBadge
